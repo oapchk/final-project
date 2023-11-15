@@ -7,11 +7,22 @@ import {
   Button,
 } from "@mui/material";
 import PetsIcon from "@mui/icons-material/Pets";
+
 // import React from "react";
+
+const MenuButton = (props) => (
+  <Button
+    {...props}
+    sx={{
+      color: "#4F4A45",
+      "&:hover": { color: "#fff", backgroundColor: "#FF9130" },
+    }}
+  />
+);
 
 export const Navbar = () => {
   return (
-    <AppBar position="static" color="inherit">
+    <AppBar position="fixed" color="transparent" zIndex={42} elevation={0}>
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit" aria-label="logo">
           <PetsIcon />
@@ -19,15 +30,20 @@ export const Navbar = () => {
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, fontWeight: 400, marginLeft: -1 }}
+          sx={{
+            color: "#4F4A45",
+            flexGrow: 1,
+            fontWeight: 400,
+            marginLeft: -1,
+          }}
         >
           ADOPT
         </Typography>
         <Stack direction="row" spacing={2}>
-          <Button color="inherit">Nasi Pupile</Button>
-          <Button color="inherit">Jak to działa?</Button>
-          <Button color="inherit">Schroniska</Button>
-          <Button color="inherit">Adoptuj</Button>
+          <MenuButton>Nasi Pupile</MenuButton>
+          <MenuButton>Jak to działa?</MenuButton>
+          <MenuButton>Schroniska</MenuButton>
+          <MenuButton>Adoptuj</MenuButton>
         </Stack>
       </Toolbar>
     </AppBar>
