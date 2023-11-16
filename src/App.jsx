@@ -1,12 +1,15 @@
 import HeroSection from "./components/HeroSection";
 import "../src/App.scss";
 import { Navbar } from "./components/Navbar";
-// import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
+import Survey from "./components/survey/Survey";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <>
       <Navbar />
       <HeroSection />
+      <Survey />
     </>
   );
 }
