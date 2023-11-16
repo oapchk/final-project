@@ -55,7 +55,7 @@
 // // // //     }
 // // // //   }
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -67,16 +67,8 @@ import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 import FourthStep from "./FourthStep";
 import FifthStep from "./FifthStep";
-import SixthStep from "./SixthStep";
 
-const steps = [
-  "Twoje dane",
-  "Aktywność",
-  "Ankieta",
-  "Styl życia",
-  "Osobowość",
-  "Wynik",
-];
+const steps = ["Twoje dane", "Styl życia", "Ankieta", "Osobowość", "Wynik"];
 
 function getContent(step) {
   switch (step) {
@@ -90,8 +82,6 @@ function getContent(step) {
       return <FourthStep />;
     case 5:
       return <FifthStep />;
-    case 6:
-      return <SixthStep />;
   }
 }
 
@@ -146,7 +136,7 @@ export default function Survey() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "60%", margin: "auto" }}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
@@ -158,7 +148,7 @@ export default function Survey() {
       </Stepper>
       <div>
         {allStepsCompleted() ? (
-          <React.Fragment>
+          <>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
@@ -166,9 +156,9 @@ export default function Survey() {
               <Box sx={{ flex: "1 1 auto" }} />
               <Button onClick={handleReset}>Reset</Button>
             </Box>
-          </React.Fragment>
+          </>
         ) : (
-          <React.Fragment>
+          <>
             <Box>{getContent(activeStep + 1)}</Box>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
@@ -177,11 +167,11 @@ export default function Survey() {
                 onClick={handleBack}
                 sx={{ mr: 1 }}
               >
-                Back
+                WSTECZ
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
               <Button onClick={handleNext} sx={{ mr: 1 }}>
-                Next
+                DALEJ
               </Button>
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
@@ -199,7 +189,7 @@ export default function Survey() {
                   </Button>
                 ))}
             </Box>
-          </React.Fragment>
+          </>
         )}
       </div>
     </Box>
