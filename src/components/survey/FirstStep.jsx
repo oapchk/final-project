@@ -1,23 +1,4 @@
-// import { TextField } from "@mui/material";
-
-// const FirstStep = () => {
-//   return (
-//     <div>
-//       <div>
-//         <TextField label="Imię" variant="outlined" />
-//       </div>
-//       <div>
-//         <TextField label="Nazwisko" variant="outlined" />
-//       </div>
-//       <div>
-//         <TextField label="Imię" variant="outlined" />
-//       </div>
-//       <div></div>
-//     </div>
-//   );
-// };
-
-// export default FirstStep;
+// eslint-disable-next-line no-unused-vars
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -30,27 +11,32 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
-
-export default function AddressForm() {
+import useLocalStorage from "../../utilis/LocalStorageHook";
+export default function FirstStep() {
   const [contactMethod, setContactMethod] = useState("");
+  const [name, setName] = useLocalStorage("name", "");
+  const [lastName, setLastName] = useLocalStorage("lastName", "");
+  const [city, setCity] = useLocalStorage("city", "");
+  const [postalCode, setPostalCode] = useLocalStorage("postalCode", "");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleContactMethodChange = (event) => {
     setContactMethod(event.target.value);
   };
+
   return (
-    <Box sx={{}}>
-      <Typography variant="h6" gutterBottom>
+    <Box>
+      <Typography variant="h6" mb={3}>
         Podaj swoje dane do kontaku
       </Typography>
       <Grid
         container
-        // direction="column"
-        // justifyContent="center"
-        // alignItems="center"
+        direction="rows"
+        justifyContent="center"
+        alignItems="center"
         spacing={3}
-        // style={{ margin: "auto" }}
+        mb={3}
       >
         <Grid item sx={12} sm={5}>
           <TextField
@@ -61,6 +47,9 @@ export default function AddressForm() {
             fullWidth
             autoComplete="given-name"
             variant="outlined"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
           />
         </Grid>
         <Grid item sx={12} sm={5}>
@@ -72,16 +61,9 @@ export default function AddressForm() {
             fullWidth
             autoComplete="family-name"
             variant="outlined"
-          />
-        </Grid>
-        <Grid item sx={12} sm={5}>
-          <TextField
-            id="address1"
-            name="address1"
-            label="Adres"
-            fullWidth
-            autoComplete="shipping address-line1"
-            variant="outlined"
+            onChange={(e) => {
+              setLastName(e.target.value);
+            }}
           />
         </Grid>
         <Grid item sx={12} sm={5}>
@@ -93,6 +75,9 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-level2"
             variant="outlined"
+            onChange={(e) => {
+              setCity(e.target.value);
+            }}
           />
         </Grid>
 
@@ -101,46 +86,68 @@ export default function AddressForm() {
             required
             id="zip"
             name="zip"
-            label="Zip / Postal code"
+            label="Kod pocztowy"
+            placeholder="XX-XXX"
             fullWidth
             autoComplete="shipping postal-code"
             variant="outlined"
+            onChange={(e) => {
+              setPostalCode(e.target.value);
+            }}
           />
         </Grid>
       </Grid>
-      <Typography variant="subtitle1" gutterBottom>
+      <Typography variant="h6" mb={3}>
         Jak mamy się z Tobą kontaktować?
       </Typography>
-      <FormControl>
-        <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          value={contactMethod}
-          onChange={handleContactMethodChange}
-        >
-          <FormControlLabel value="email" control={<Radio />} label="E-mail" />
-          {contactMethod === "email" && (
-            <TextField
-              id="email"
-              label="Adres e-mail"
-              fullWidth
-              variant="outlined"
-              // Add any additional props or styling as needed
+      <Grid
+        container
+        direction="columns"
+        justifyContent="center"
+        alignItems="center"
+        spacing={3}
+        mb={3}
+      >
+        <FormControl>
+          <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+          <RadioGroup
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            name="controlled-radio-buttons-group"
+            value={contactMethod}
+            onChange={handleContactMethodChange}
+            fullWidth
+          >
+            <FormControlLabel
+              value="email"
+              control={<Radio />}
+              label="E-mail"
             />
-          )}
-          <FormControlLabel value="phone" control={<Radio />} label="Telefon" />
-          {contactMethod === "phone" && (
-            <TextField
-              id="phone"
-              label="Numer telefonu"
-              fullWidth
-              variant="outlined"
-              // Add any additional props or styling as needed
+            {contactMethod === "email" && (
+              <TextField
+                id="email"
+                label="Adres e-mail"
+                fullWidth
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            )}
+            <FormControlLabel
+              value="phone"
+              control={<Radio />}
+              label="Telefon"
             />
-          )}
-        </RadioGroup>
-      </FormControl>
+            {contactMethod === "phone" && (
+              <TextField
+                id="phone"
+                label="Numer telefonu"
+                fullWidth
+                variant="outlined"
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            )}
+          </RadioGroup>
+        </FormControl>
+      </Grid>
     </Box>
   );
 }

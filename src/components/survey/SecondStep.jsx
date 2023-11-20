@@ -6,9 +6,9 @@ import LuggageOutlinedIcon from "@mui/icons-material/LuggageOutlined";
 
 const SecondStep = () => {
   const [switchStates, setSwitchStates] = useState({
-    outdoor: true,
-    nearPark: true,
-    travelFrequently: true,
+    outdoor: false,
+    nearPark: false,
+    travelFrequently: false,
   });
 
   const handleChangeSwitch = (key) => (event) => {
@@ -19,12 +19,10 @@ const SecondStep = () => {
   };
 
   return (
-    <Box
-      sx={{
-        width: 900,
-        margin: "auto",
-      }}
-    >
+    <Box>
+      <Typography variant="h6" mb={3}>
+        Przesuń suwak zgodnie ze swoim stylem życia
+      </Typography>
       <Grid container spacing={5} marginBottom={5}>
         <Grid
           item

@@ -1,16 +1,31 @@
+// import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeroSection from "./components/HeroSection";
 import "../src/App.scss";
 import { Navbar } from "./components/Navbar";
 import Survey from "./components/survey/Survey";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FF9130",
+      contrastText: "#fff",
+    },
+  },
+});
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <HeroSection />
-      <Survey />
-    </>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/adopt" element={<Survey />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

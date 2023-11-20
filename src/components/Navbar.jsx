@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import PetsIcon from "@mui/icons-material/Pets";
-
+import { Link } from "react-router-dom";
 // import React from "react";
 
 const MenuButton = (props) => (
@@ -24,7 +24,14 @@ export const Navbar = () => {
   return (
     <AppBar position="fixed" color="transparent" zIndex={42} elevation={0}>
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="logo">
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="logo"
+          component={Link}
+          to="/"
+        >
           <PetsIcon />
         </IconButton>
         <Typography
@@ -37,13 +44,15 @@ export const Navbar = () => {
             marginLeft: -1,
           }}
         >
-          ADOPT
+          adopt me.
         </Typography>
         <Stack direction="row" spacing={2}>
           <MenuButton>Nasi Pupile</MenuButton>
           <MenuButton>Jak to działa?</MenuButton>
           <MenuButton>Schroniska</MenuButton>
-          <MenuButton>Adoptuj</MenuButton>
+          <MenuButton component={Link} to="/adopt">
+            ADOPTUJ
+          </MenuButton>
         </Stack>
       </Toolbar>
     </AppBar>

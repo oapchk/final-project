@@ -1,4 +1,5 @@
 import { Box, Container, Button, Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import hero_dog from "../../src/img/hero_dog2.jpg";
 
 const HeroSection = () => {
@@ -7,7 +8,6 @@ const HeroSection = () => {
     zIndex: 1,
     color: "white",
     height: "100%",
-    // Set text color to white or your preferred color
   };
 
   return (
@@ -46,7 +46,8 @@ const HeroSection = () => {
               </Typography>
               <Box my={3}>
                 <Button
-                  href=""
+                  component={Link}
+                  to="/adopt"
                   variant="contained"
                   sx={{
                     backgroundColor: "#FF5B22",
