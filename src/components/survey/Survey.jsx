@@ -4,13 +4,14 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
-import useLocalStorage from "../../utilis/LocalStorageHook";
+// import useLocalStorage from "../../utilis/LocalStorageHook";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
 import FourthStep from "./FourthStep";
 import FifthStep from "./FifthStep";
 import { Grid } from "@mui/material";
+import { useState } from "react";
 
 const steps = ["Twoje dane", "Styl życia", "Ankieta", "Osobowość", "Wynik"];
 
@@ -30,8 +31,8 @@ function getContent(step) {
 }
 
 export default function Survey() {
-  const [activeStep, setActiveStep] = useLocalStorage("activeStep", 0);
-  const [completed, setCompleted] = useLocalStorage("completed", {});
+  const [activeStep, setActiveStep] = useState(0);
+  const [completed, setCompleted] = useState({});
 
   // const totalSteps = () => {
   //   return steps.length;
@@ -101,16 +102,23 @@ export default function Survey() {
         </Stepper>
       </Box>
       <Box>{getContent(activeStep + 1)}</Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          mt: 5,
+          width: "400px",
+        }}
+      >
         <Button
           disabled={activeStep === 0}
           onClick={handleBack}
-          sx={{ marginRight: 1 }}
+          // sx={{ marginRight: 1 }}
         >
           Wstecz
         </Button>
         {activeStep < steps.length - 1 ? (
-          <Button onClick={handleNext}>Dalej</Button>
+          <Button onClick={handleComplete}>Dalej</Button>
         ) : null}
       </Box>
     </Grid>

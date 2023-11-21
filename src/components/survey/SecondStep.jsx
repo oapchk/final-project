@@ -1,22 +1,26 @@
-import { useState } from "react";
 import { Slider, Typography, Switch, Box, Grid } from "@mui/material";
 import NaturePeopleOutlinedIcon from "@mui/icons-material/NaturePeopleOutlined";
 import ParkOutlinedIcon from "@mui/icons-material/ParkOutlined";
 import LuggageOutlinedIcon from "@mui/icons-material/LuggageOutlined";
+import useLocalStorage from "../../utilis/LocalStorageHook";
 
 const SecondStep = () => {
-  const [switchStates, setSwitchStates] = useState({
-    outdoor: false,
-    nearPark: false,
-    travelFrequently: false,
-  });
+  const [outdoor, setOutdoor] = useLocalStorage("outdoor", false);
+  const [nearPark, setNearPark] = useLocalStorage("nearPark", false);
+  const [travelFrequently, setTravelFrequently] = useLocalStorage(
+    "travelFrequently",
+    false
+  );
 
-  const handleChangeSwitch = (key) => (event) => {
-    setSwitchStates((prevStates) => ({
-      ...prevStates,
-      [key]: event.target.checked,
-    }));
-  };
+  const [company, setCompany] = useLocalStorage("company", 50);
+  const [cooking, setCooking] = useLocalStorage("cooking", 90);
+  const [parties, setParties] = useLocalStorage("parties", 10);
+  const [travel, setTravel] = useLocalStorage("travel", 40);
+  const [physicalActivity, setPhysicalActivity] = useLocalStorage(
+    "physicalActivity",
+    30
+  );
+  const [bedtime, setBedtime] = useLocalStorage("bedtime", 50);
 
   return (
     <Box>
@@ -36,8 +40,7 @@ const SecondStep = () => {
           <Typography>Wolę być na świeżym powietrzu</Typography>
           <Switch
             fullWidth
-            checked={switchStates.outdoor}
-            onChange={handleChangeSwitch("outdoor")}
+            onChange={() => setOutdoor(!outdoor)}
             inputProps={{ "aria-label": "controlled" }}
           />
         </Grid>
@@ -53,8 +56,8 @@ const SecondStep = () => {
           <Typography>Mieszkam blisko parku</Typography>
           <Switch
             fullWidth
-            checked={switchStates.nearPark}
-            onChange={handleChangeSwitch("nearPark")}
+            checked={nearPark}
+            onChange={() => setNearPark(!nearPark)}
             inputProps={{ "aria-label": "controlled" }}
           />
         </Grid>
@@ -70,8 +73,8 @@ const SecondStep = () => {
           <Typography>Często podróżuje służbowo</Typography>
           <Switch
             fullWidth
-            checked={switchStates.travelFrequently}
-            onChange={handleChangeSwitch("travelFrequently")}
+            checked={travelFrequently}
+            onChange={() => setTravelFrequently(!travelFrequently)}
             inputProps={{ "aria-label": "controlled" }}
           />
         </Grid>
@@ -84,6 +87,8 @@ const SecondStep = () => {
             defaultValue={50}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={company}
+            onChange={(event, newValue) => setCompany(newValue)}
           />
         </Grid>
         <Grid item sx={12} sm={6}>
@@ -93,6 +98,8 @@ const SecondStep = () => {
             defaultValue={90}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={cooking}
+            onChange={(event, newValue) => setCooking(newValue)}
           />
         </Grid>
         <Grid item sx={12} sm={6}>
@@ -102,6 +109,8 @@ const SecondStep = () => {
             defaultValue={10}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={parties}
+            onChange={(event, newValue) => setParties(newValue)}
           />
         </Grid>
         <Grid item sx={12} sm={6}>
@@ -111,6 +120,8 @@ const SecondStep = () => {
             defaultValue={40}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={travel}
+            onChange={(event, newValue) => setTravel(newValue)}
           />
         </Grid>
         <Grid item sx={12} sm={6}>
@@ -120,6 +131,8 @@ const SecondStep = () => {
             defaultValue={30}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={physicalActivity}
+            onChange={(event, newValue) => setPhysicalActivity(newValue)}
           />
         </Grid>
         <Grid item sx={12} sm={6}>
@@ -129,6 +142,8 @@ const SecondStep = () => {
             defaultValue={50}
             aria-label="Default"
             valueLabelDisplay="auto"
+            value={bedtime}
+            onChange={(event, newValue) => setBedtime(newValue)}
           />
         </Grid>
       </Grid>
