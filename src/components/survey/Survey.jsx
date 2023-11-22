@@ -110,11 +110,7 @@ export default function Survey() {
           width: "400px",
         }}
       >
-        <Button
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          // sx={{ marginRight: 1 }}
-        >
+        <Button disabled={activeStep === 0} onClick={handleBack}>
           Wstecz
         </Button>
         {activeStep < steps.length - 1 ? (

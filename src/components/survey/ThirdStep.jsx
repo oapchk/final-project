@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
-
 import { Typography, Box, Grid, TextField, MenuItem } from "@mui/material";
-import useLocalStorage from "../../utilis/LocalStorageHook";
+// import useLocalStorage from "../../utilis/LocalStorageHook";
+import { useState } from "react";
 
-const SurveyQuestion = ({ question, options, onSubmit }) => {
-  const [selectedOption, setSelectedOption] = useLocalStorage(
-    `${question}`,
-    ""
-  );
+const SurveyQuestion = ({ question, options, onChange }) => {
+  const [selectedOption, setSelectedOption] = useState(() => {
+    const storedValue = localStorage.getItem(`${question}`);
+    return storedValue || "";
+  });
 
   const handleOptionChange = (e) => {
     const optionValue = e.target.value;
     setSelectedOption(optionValue);
-    onSubmit(optionValue);
+    // localStorage.setItem(`${question}`, optionValue);
+    onChange(optionValue);
   };
 
   return (
@@ -43,10 +44,10 @@ const SurveyQuestion = ({ question, options, onSubmit }) => {
 SurveyQuestion.propTypes = {
   question: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
-const Survey = () => {
+const ThirdStep = () => {
   const questions = [
     {
       id: 1,
@@ -80,8 +81,9 @@ const Survey = () => {
     },
   ];
 
-  const handleQuestionSubmit = (selectedOption, questionId) => {
-    console.log(`Question ${questionId} - Selected Option:`, selectedOption);
+  const handleQuestionChange = (selectedOption, questionId) => {
+    localStorage.setItem(`question_${questionId}`, selectedOption);
+    // console.log(`Question ${questionId} - Selected Option:`, selectedOption);
   };
 
   return (
@@ -92,7 +94,7 @@ const Survey = () => {
             <SurveyQuestion
               question={q.question}
               options={q.options}
-              onSubmit={(option) => handleQuestionSubmit(option, q.id)}
+              onChange={(option) => handleQuestionChange(option, q.id)}
             />
           </Grid>
         ))}
@@ -101,4 +103,4 @@ const Survey = () => {
   );
 };
 
-export default Survey;
+export default ThirdStep;

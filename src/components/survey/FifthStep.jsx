@@ -1,7 +1,34 @@
+import { useEffect } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import dog_outdoors from "/src/img/dog_outdoors.jpg";
+import animalData from "./animals.json";
 
 const FifthStep = () => {
+  const selectedBreed = localStorage.getItem("question_1") || "";
+
+  useEffect(() => {
+    // Odczytaj wartość z localStorage
+    const storedValue = localStorage.getItem("value");
+
+    // Sprawdź, czy wartość istnieje i nie jest null/undefined
+    if (storedValue !== null && storedValue !== undefined) {
+      // Ustaw wartość w stanie komponentu
+      setSelectedBreed(storedValue);
+    }
+  }, []);
+  console.log("Selected Breed:", selectedBreed);
+  const matchingAnimal = animalData.animals.find(
+    (animal) =>
+      animal.breed.toLowerCase() ===
+      (selectedBreed ? selectedBreed.toLowerCase() : "")
+  );
+
+  console.log("Matching Animal:", matchingAnimal);
+
+  if (!matchingAnimal) {
+    return null;
+  }
+
   return (
     <Box position={"relative"} textAlign={"center"}>
       <img
@@ -28,7 +55,7 @@ const FifthStep = () => {
             color: "#4F4A45",
           }}
         >
-          Poznaj Lemona!
+          Poznaj {matchingAnimal.name}!
         </Typography>
         <Typography
           variant="body1"
@@ -38,9 +65,7 @@ const FifthStep = () => {
             color: "#4F4A45",
           }}
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum
-          velit minima obcaecati suscipit temporibus ducimus, veritatis earum
-          odio minus laborum.
+          {matchingAnimal.description}
         </Typography>
         <Button sx={{ marginBottom: 2 }}> DOWIEDZ SIĘ WIĘCEJ</Button>
       </Box>
@@ -49,6 +74,71 @@ const FifthStep = () => {
 };
 
 export default FifthStep;
+
+// import { Box, Button, Typography } from "@mui/material";
+// import dog_outdoors from "/src/img/dog_outdoors.jpg";
+// import useLocalStorage from "../../utilis/LocalStorageHook";
+// import animalData from "./animals.json";
+
+// const allValues = [];
+
+// for (let i = 0; i < localStorage.length; i++) {
+//   const key = localStorage.key(i);
+//   const value = localStorage.getItem(key);
+//   allValues.push({ key, value });
+// }
+
+// console.log(allValues);
+
+// const FifthStep = () => {
+//   return (
+//     <Box position={"relative"} textAlign={"center"}>
+//       <img
+//         src={dog_outdoors}
+//         style={{
+//           display: "block",
+//           margin: "auto",
+//           width: "600px",
+//           borderRadius: "4px",
+//         }}
+//       />
+//       <Box
+//         position="absolute"
+//         bottom="15%"
+//         right="60%"
+//         width="70%"
+//         sx={{ borderRadius: "4px", backgroundColor: "#fff" }}
+//       >
+//         <Typography
+//           component="h1"
+//           variant="h4"
+//           pt={2}
+//           sx={{
+//             color: "#4F4A45",
+//           }}
+//         >
+//           Poznaj Lemona!
+//         </Typography>
+//         <Typography
+//           variant="body1"
+//           pb={2}
+//           paddingInline={2}
+//           sx={{
+//             color: "#4F4A45",
+//           }}
+//         >
+//           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum
+//           velit minima obcaecati suscipit temporibus ducimus, veritatis earum
+//           odio minus laborum.
+//         </Typography>
+//         <Button sx={{ marginBottom: 2 }}> DOWIEDZ SIĘ WIĘCEJ</Button>
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default FifthStep;
+
 // import { useState, useEffect } from "react";
 // import { Box, Button, Typography } from "@mui/material";
 // import dog_outdoors from "/src/img/dog_outdoors.jpg";

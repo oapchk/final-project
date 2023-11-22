@@ -25,13 +25,13 @@
       "id": 4,
       "breed": "szop",
       "name": "Milo",
-      "traits": ["dorosły", "samiec", "średni"],
+      "traits": ["senior", "samiec", "duży"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
     },
     {
       "id": 5,
       "breed": "jeż",
-      "name": "Lemon",
+      "name": "Ambroży",
       "traits": ["dorosły", "samiec", "średni"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
     }
