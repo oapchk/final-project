@@ -5,7 +5,8 @@ import "../src/App.scss";
 import { Navbar } from "./components/Navbar";
 import Survey from "./components/survey/Survey";
 import { ThemeProvider, createTheme } from "@mui/material";
-
+import Shelters from "./components/Shelters";
+import HowItWorks from "./components/HowItWorks";
 const theme = createTheme({
   palette: {
     primary: {
@@ -23,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroSection />} />
           <Route path="/adopt" element={<Survey />} />
+          <Route path="/shelters" element={<Shelters />} />
+          <Route path="/howitworks" element={<HowItWorks />} />
         </Routes>
       </Router>
     </ThemeProvider>

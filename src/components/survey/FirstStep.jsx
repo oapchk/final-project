@@ -113,36 +113,39 @@ export default function FirstStep() {
               name="controlled-radio-buttons-group"
               value={contactMethod}
               onChange={handleContactMethodChange}
-              sx={{ flexDirection: "column" }}
             >
-              <FormControlLabel
-                value="email"
-                control={<Radio />}
-                label="E-mail"
-              />
-              {contactMethod === "email" && (
-                <TextField
-                  name="email"
-                  id="email"
-                  label="Adres e-mail"
-                  variant="outlined"
-                  onChange={(e) => setEmail(e.target.value)}
+              <Grid item mb={4} alignItems={"center"} justifyContent={"center"}>
+                <FormControlLabel
+                  value="email"
+                  control={<Radio />}
+                  label="E-mail"
                 />
-              )}
-              <FormControlLabel
-                value="phone"
-                control={<Radio />}
-                label="Telefon"
-              />
-              {contactMethod === "phone" && (
-                <TextField
-                  name="phone"
-                  id="phone"
-                  label="Numer telefonu"
-                  variant="outlined"
-                  onChange={(e) => setPhone(e.target.value)}
+                {contactMethod === "email" && (
+                  <TextField
+                    name="email"
+                    id="email"
+                    label="Adres e-mail"
+                    variant="outlined"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                )}
+              </Grid>
+              <Grid item mb={3} alignItems={"center"} justifyContent={"center"}>
+                <FormControlLabel
+                  value="phone"
+                  control={<Radio />}
+                  label="Telefon"
                 />
-              )}
+                {contactMethod === "phone" && (
+                  <TextField
+                    name="phone"
+                    id="phone"
+                    label="Numer telefonu"
+                    variant="outlined"
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                )}
+              </Grid>
             </RadioGroup>
           </FormControl>
         </Grid>

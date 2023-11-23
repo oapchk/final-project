@@ -3,6 +3,8 @@
     {
       "id": 1,
       "breed": "pies",
+      "image": "src/img/dog_outdoors.jpg",
+
       "name": "Lemon",
       "traits": ["dorosły", "samiec", "średni"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
@@ -10,6 +12,7 @@
     {
       "id": 2,
       "breed": "kot",
+      "image": "src/img/kitten.jpg",
       "name": "Reksio",
       "traits": ["dorosły", "samiec", "średni"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
@@ -17,6 +20,7 @@
     {
       "id": 3,
       "breed": "królik",
+      "image": "src/img/rabbit.jpg",
       "name": "Bonifacy",
       "traits": ["dorosły", "samiec", "średni"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
@@ -24,6 +28,7 @@
     {
       "id": 4,
       "breed": "szop",
+      "image": "src/img/raccoon.jpg",
       "name": "Milo",
       "traits": ["senior", "samiec", "duży"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."
@@ -31,6 +36,7 @@
     {
       "id": 5,
       "breed": "jeż",
+      "image": "src/img/hedgehog.jpg",
       "name": "Ambroży",
       "traits": ["dorosły", "samiec", "średni"],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum velit minima obcaecati suscipit temporibus ducimus, veritatis earum odio minus laborum."

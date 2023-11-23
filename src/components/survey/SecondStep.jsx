@@ -39,6 +39,7 @@ const SecondStep = () => {
           <NaturePeopleOutlinedIcon />
           <Typography>Wolę być na świeżym powietrzu</Typography>
           <Switch
+            sx={{ color: "#3f7cac" }}
             fullWidth
             onChange={() => setOutdoor(!outdoor)}
             inputProps={{ "aria-label": "controlled" }}
@@ -55,6 +56,7 @@ const SecondStep = () => {
           <ParkOutlinedIcon />
           <Typography>Mieszkam blisko parku</Typography>
           <Switch
+            sx={{ color: "#3f7cac" }}
             fullWidth
             checked={nearPark}
             onChange={() => setNearPark(!nearPark)}
@@ -72,6 +74,7 @@ const SecondStep = () => {
           <LuggageOutlinedIcon />
           <Typography>Często podróżuje służbowo</Typography>
           <Switch
+            sx={{ color: "#3f7cac" }}
             fullWidth
             checked={travelFrequently}
             onChange={() => setTravelFrequently(!travelFrequently)}
@@ -83,6 +86,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Lubię towarzystwo</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={50}
             aria-label="Default"
@@ -94,6 +98,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Gotuję w domu</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={90}
             aria-label="Default"
@@ -105,6 +110,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Lubię chodzić na imprezy</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={10}
             aria-label="Default"
@@ -116,6 +122,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Często podróżuję</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={40}
             aria-label="Default"
@@ -127,6 +134,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Lubię aktywność fizyczną</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={30}
             aria-label="Default"
@@ -138,6 +146,7 @@ const SecondStep = () => {
         <Grid item sx={12} sm={6}>
           <Typography gutterBottom>Wcześnie chodzę spać</Typography>
           <Slider
+            sx={{ color: "#3f7cac" }}
             fullWidth
             defaultValue={50}
             aria-label="Default"

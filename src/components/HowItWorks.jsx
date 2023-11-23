@@ -1,13 +1,5 @@
-import {
-  Box,
-  Container,
-  Button,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { Link } from "react-router-dom";
-import hero_dog from "../../src/img/hero_dog2.jpg";
+import { Box, Container, Grid, Typography, useMediaQuery } from "@mui/material";
+import InProgres from "../../src/img/progress.jpg";
 
 const HeroSection = () => {
   const containerStyle = {
@@ -23,8 +15,8 @@ const HeroSection = () => {
     <div>
       <Box style={{ position: "relative", height: "100vh" }}>
         <img
-          src={hero_dog}
-          alt="Picture of the dog with paw up"
+          src={InProgres}
+          alt="Picture of the dog with laptop"
           style={{
             position: "absolute",
             zIndex: -1,
@@ -46,13 +38,13 @@ const HeroSection = () => {
                 variant={isSmallScreen ? "h4" : isLargeScreen ? "h2" : "h3"}
                 my={3}
                 sx={{
-                  color: "#4F4A45",
-                  marginLeft: isSmallScreen ? "auto" : 0,
+                  // color: "#4F4A45",
+                  marginLeft: isSmallScreen ? "auto" : 80,
                 }}
               >
-                ADOPTuj nie kupuj!
+                STRONA W BUDOWIE
               </Typography>
-              <Typography
+              {/* <Typography
                 variant={isSmallScreen ? "body2" : isLargeScreen ? "h5" : "h5"}
                 sx={{
                   color: "#4F4A45",
@@ -61,20 +53,7 @@ const HeroSection = () => {
               >
                 Adopcja psa, kota czy innego zwierzaka nigdy nie była tak
                 prosta! Wypełnij ankietę i znajdź swojego przyjaciela!
-              </Typography>
-              <Box my={3}>
-                <Button
-                  component={Link}
-                  to="/adopt"
-                  variant="contained"
-                  sx={{
-                    backgroundColor: "#FF5B22",
-                    "&:hover": { backgroundColor: "#FF9130" },
-                  }}
-                >
-                  ADOPTUJ
-                </Button>
-              </Box>
+              </Typography> */}
             </Grid>
           </Grid>
         </Container>

@@ -52,7 +52,7 @@ const ThirdStep = () => {
     {
       id: 1,
       question: "Jakie zwierzę chcesz adoptować",
-      options: ["Pies", "Kot", "Szop", "Królik", "Jeż", "Inne"],
+      options: ["Pies", "Kot", "Szop", "Królik", "Jeż"],
     },
     {
       id: 2,

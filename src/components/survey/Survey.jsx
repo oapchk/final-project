@@ -1,19 +1,16 @@
-// import { useState } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
-// import useLocalStorage from "../../utilis/LocalStorageHook";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
+import { useState } from "react";
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
 import ThirdStep from "./ThirdStep";
-import FourthStep from "./FourthStep";
 import FifthStep from "./FifthStep";
-import { Grid } from "@mui/material";
-import { useState } from "react";
 
-const steps = ["Twoje dane", "Styl życia", "Ankieta", "Osobowość", "Wynik"];
+const steps = ["Twoje dane", "Styl życia", "Ankieta", "Wynik"];
 
 function getContent(step) {
   switch (step) {
@@ -23,8 +20,6 @@ function getContent(step) {
       return <SecondStep />;
     case 3:
       return <ThirdStep />;
-    case 4:
-      return <FourthStep />;
     default:
       return <FifthStep />;
   }
@@ -33,22 +28,9 @@ function getContent(step) {
 export default function Survey() {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // const totalSteps = () => {
-  //   return steps.length;
-  // };
-
-  // const completedSteps = () => {
-  //   return Object.keys(completed).length;
-  // };
-
-  // const isLastStep = () => {
-  //   return activeStep === totalSteps() - 1;
-  // };
-
-  // const allStepsCompleted = () => {
-  //   return completedSteps() === totalSteps();
-  // };
   const handleNext = () => {
     const newActiveStep = activeStep + 1;
     setActiveStep(newActiveStep);
@@ -62,25 +44,13 @@ export default function Survey() {
     setActiveStep(step);
   };
 
-  // const handleComplete = () => {
-  //   const newCompleted = completed;
-  //   newCompleted[activeStep] = true;
-  //   setCompleted(newCompleted);
-  //   handleNext();
-  // };
   const handleComplete = () => {
     const newCompleted = { ...completed };
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     handleNext();
   };
-  // const saveDataToLocalStorage = () => {
-  //   const surveyData = {
-  //     activeStep,
-  //     completed,
-  //   };
-  //   localStorage.setItem("surveyData", JSON.stringify(surveyData));
-  // };
+
   return (
     <Grid
       container
@@ -90,7 +60,9 @@ export default function Survey() {
       justifyContent="center"
       sx={{ minHeight: "100vh" }}
     >
-      <Box sx={{ width: "80%", marginBlockEnd: "100px" }}>
+      <Box
+        sx={{ width: "80%", marginBlockEnd: "50px", marginBlockStart: "10px" }}
+      >
         <Stepper nonLinear activeStep={activeStep}>
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
@@ -101,16 +73,24 @@ export default function Survey() {
           ))}
         </Stepper>
       </Box>
-      <Box>{getContent(activeStep + 1)}</Box>
+      <Box sx={{ width: isSmallScreen ? "90%" : "50%" }}>
+        {getContent(activeStep + 1)}
+      </Box>
       <Box
         sx={{
           display: "flex",
+          flexDirection: isSmallScreen ? "column" : "row",
           justifyContent: "space-between",
           mt: 5,
-          width: "400px",
+          width: "80%",
+          marginInline: "auto",
         }}
       >
-        <Button disabled={activeStep === 0} onClick={handleBack}>
+        <Button
+          sx={{ mb: isSmallScreen ? 2 : 0 }}
+          disabled={activeStep === 0}
+          onClick={handleBack}
+        >
           Wstecz
         </Button>
         {activeStep < steps.length - 1 ? (
