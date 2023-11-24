@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemText,
   List,
-  Switch,
 } from "@mui/material";
 import PetsIcon from "@mui/icons-material/Pets";
 import { Link } from "react-router-dom";

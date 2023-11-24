@@ -1,8 +1,22 @@
-# React + Vite
+# Animal Adoption Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the final project for the frontend course. It includes preliminary planned functionalities and outlines plans for further development.
 
-Currently, two official plugins are available:
+## The Idea
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create an interactive platform that helps people find their perfect pet match by considering similar lifestyles. The goal is to minimize the likelihood of adoptees returning pets to shelters
+
+## What's already done
+
+- responsive homepage and navbar
+- 3 steps questionnaire
+- serach of shelters
+
+## Technologies Used
+
+- Vite + React
+- React Router
+- MUI
+- API
+
+- [Check it under this link](https://adopt-friend.netlify.app/)
