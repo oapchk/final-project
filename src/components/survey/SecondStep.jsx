@@ -24,8 +24,11 @@ const SecondStep = () => {
 
   return (
     <Box>
-      <Typography variant="h6" mb={3}>
+      <Typography variant="h6">
         Przesuń suwak zgodnie ze swoim stylem życia
+      </Typography>{" "}
+      <Typography variant="subtitle1" mb={3}>
+        Ułatwi to nam wybór odpowiedniego zwierzaka dla Ciebie 🐈
       </Typography>
       <Grid container spacing={5} marginBottom={5}>
         <Grid

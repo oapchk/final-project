@@ -28,6 +28,7 @@ function getContent(step) {
 export default function Survey() {
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState({});
+
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 

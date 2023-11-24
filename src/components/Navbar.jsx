@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemText,
   List,
+  Switch,
 } from "@mui/material";
 import PetsIcon from "@mui/icons-material/Pets";
 import { Link } from "react-router-dom";
@@ -30,6 +31,7 @@ export const Navbar = () => {
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
+
   return (
     <>
       <AppBar position="fixed" color="transparent" zIndex={42} elevation={0}>
