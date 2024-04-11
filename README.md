@@ -18,5 +18,3 @@ Create an interactive platform that helps people find their perfect pet match by
 - React Router
 - MUI
 - API
-
-- [Check it under this link](https://adopt-friend.netlify.app/)
